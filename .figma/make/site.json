@@ -1,0 +1,10 @@
+{
+  "description": "Enables AI music creators to verify originality, record creation history on blockchain, and trade commercial licenses with automated revenue sharing.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,321 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Pretendard', 'Inter', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Pretendard', 'Inter', sans-serif;
+  background: #f1f3f5;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 0; height: 0; }
+
+/* ── Tokens ── */
+:root {
+  --primary:   #2563EB;
+  --secondary: #10B981;
+  --danger:    #EF4444;
+  --bg-page:   #F8F9FA;
+  --bg-card:   #FFFFFF;
+  --border:    #E5E7EB;
+  --text-main: #111827;
+  --text-body: #4B5563;
+  --text-muted:#9CA3AF;
+}
+
+/* ── Slide shell ── */
+.slide {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  /* 16:9 feel at full width */
+  width: 100%;
+  min-height: 540px;
+  padding: 56px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-gray {
+  background: #F8F9FA;
+}
+
+/* ── Typography ── */
+.slide-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.slide-title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin: 0 0 10px;
+}
+
+.slide-subtitle {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--text-body);
+  line-height: 1.65;
+  margin: 0 0 40px;
+}
+
+/* ── Blue accent line (Slide 01) ── */
+.accent-line {
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+/* ── Cards ── */
+.ir-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 36px;
+}
+
+.ir-card-sm {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+/* ── Pill tags ── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ── Nav ── */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-tab {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  background: none;
+  white-space: nowrap;
+  font-family: 'Pretendard', 'Inter', sans-serif;
+}
+.nav-tab:hover { color: var(--text-body); background: #F8F9FA; }
+.nav-tab.active {
+  color: var(--primary);
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+}
+
+.brand-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-right: 12px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* ── Bottom nav ── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  z-index: 40;
+}
+
+.nav-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.15s;
+}
+.nav-btn:hover { background: #F8F9FA; }
+.nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D1D5DB;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dot.active {
+  background: var(--primary);
+  width: 18px;
+  border-radius: 3px;
+}
+
+/* ── Table ── */
+.ir-table { width: 100%; border-collapse: collapse; }
+.ir-table th {
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 12px 20px;
+  text-align: left;
+  letter-spacing: 0.04em;
+}
+.ir-table th:first-child { border-radius: 8px 0 0 0; }
+.ir-table th:last-child  { border-radius: 0 8px 0 0; }
+.ir-table td {
+  padding: 14px 20px;
+  font-size: 13px;
+  color: var(--text-body);
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+}
+.ir-table tr:last-child td { border-bottom: none; }
+
+/* ── BMC grid ── */
+.bmc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.bmc-cell {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 22px 24px;
+}
+.bmc-cell:nth-child(3),
+.bmc-cell:nth-child(6),
+.bmc-cell:nth-child(9) { border-right: none; }
+.bmc-cell:nth-child(7),
+.bmc-cell:nth-child(8),
+.bmc-cell:nth-child(9) { border-bottom: none; }
+.bmc-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* ── Progress bar ── */
+.prog-track {
+  height: 6px;
+  background: #E5E7EB;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.prog-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+/* ── Flowchart diamond ── */
+.diamond {
+  width: 160px;
+  height: 80px;
+  background: #EFF6FF;
+  border: 2px solid var(--primary);
+  transform: rotate(0deg);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--primary);
+}
+
+/* ── Step card top bar ── */
+.step-top-bar {
+  height: 4px;
+  border-radius: 4px 4px 0 0;
+  margin: -32px -36px 28px;
+}
+
+/* ── Comparison table (Slide 03) horizontal-lines-only ── */
+.comp-table { width: 100%; border-collapse: collapse; }
+.comp-table thead tr { background: #EFF6FF; }
+.comp-table thead th {
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: left;
+  border-bottom: 2px solid #BFDBFE;
+}
+.comp-table tbody td {
+  padding: 16px 24px;
+  font-size: 14px;
+  color: var(--text-body);
+  border-bottom: 1px solid var(--border);
+  line-height: 1.55;
+}
+.comp-table tbody tr:last-child td { border-bottom: none; }
+.comp-table .col-label {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 13px;
+  width: 120px;
+}
